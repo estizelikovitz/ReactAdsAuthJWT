@@ -6,8 +6,8 @@ import { useAuthContext } from '../AuthContext';
 
 
 const Home = (props) => {
-    const { user } = useAuthContext();
-    const { id } = user;
+    //const { user } = useAuthContext();
+    //const { id } = user;
     const [ads, setAds] = useState([]);
 
     const getAds = async () => {
@@ -25,18 +25,14 @@ const Home = (props) => {
     }
 
     return (
-
         <>
-
-
             <div>
-
                 <br />
                 <br />
                 <br />
                 <br />
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
+                <div className="row">
+                    <div className="col-md-6 offset-md-3">
                         {ads.map(ad => <Ad ad={ad}
                             key={ad.id}
                             deleteClick={() => deleteClick(ad)}

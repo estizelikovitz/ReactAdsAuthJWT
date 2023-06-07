@@ -5,10 +5,9 @@ import { useHistory } from 'react-router-dom';
 const Signup = () => {
     const history = useHistory();
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        name:'',
         email: '',
-        password: ''
+        passwordhash: ''
     });
     const onTextChange = e => {
         const copy = { ...formData };
@@ -27,13 +26,11 @@ const Signup = () => {
             <div className="col-md-6 offset-md-3 card card-body bg-light">
                 <h3>Sign up for a new account</h3>
                 <form onSubmit={onFormSubmit}>
-                    <input onChange={onTextChange} value={formData.firstName} type="text" name="firstName" placeholder="First Name" className="form-control" />
-                    <br />
-                    <input onChange={onTextChange} value={formData.lastName} type="text" name="lastName" placeholder="Last Name" className="form-control" />
+                    <input onChange={onTextChange} value={formData.name} type="text" name="name" placeholder="Name" className="form-control" />
                     <br />
                     <input onChange={onTextChange} value={formData.email} type="text" name="email" placeholder="Email" className="form-control" />
                     <br />
-                    <input onChange={onTextChange} value={formData.password} type="password" name="password" placeholder="Password" className="form-control" />
+                    <input onChange={onTextChange} value={formData.passwordhash} type="password" name="passwordhash" placeholder="Password" className="form-control" />
                     <br />
                     <button className="btn btn-primary">Signup</button>
                 </form>

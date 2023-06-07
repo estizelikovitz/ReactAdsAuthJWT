@@ -10,11 +10,11 @@ import { produce } from 'immer';
 const MyAds = (props) => {
 
     const { user } = useAuthContext();
-    const { id, firstName, lastName } = user;
+    const { id, name } = user;
     const [ads, setAds] = useState([]);
 
     const getAds = async () => {
-        const { data } = await getAxios().get(`/api/ads/getadsforuser`, id);
+        const { data } = await getAxios().get(`/api/ads/getadsforuser?id=${id}`);
         setAds(data);
     }
 
@@ -39,16 +39,17 @@ const MyAds = (props) => {
                     <div style={{ marginTop: 20 }}>
                         <div className="row">
                             <div className="col-md-12">
-                                <h1>Welcome {firstName} {lastName}!</h1>
-                                <Link to="/addad">
-                                    <button className="btn btn-primary btn-block">Add Ad</button>
-                                </Link>
+                                <h1>Welcome {name}!</h1>
+                                <div className="col-md-2">
+                                    <Link to="/addad" className="btn btn-primary btn-block">
+                                        Add Ad
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                         <div>
-                            <div class="row">
-                                <div class="col-md-6 offset-md-3">
-
+                            <div className="row">
+                                <div className="col-md-6 offset-md-3">
                                     {ads.map(ad => <Ad ad={ad}
                                         key={ad.id}
                                         deleteClick={() => deleteClick(ad)}

@@ -84,25 +84,25 @@ namespace ReactSimpleAdsAuthJWT.Web.Controllers
             string email = User.FindFirst("user")?.Value; //get currently logged in users email - this is in place of User.Identity.Name
             var repo = new Repository(_connectionString);
             ad.UserId = repo.GetByEmail(email).Id;
+            ad.CreatedDate = DateTime.Now.Date;
             repo.AddSimpleAd(ad);
         }
 
         [HttpGet]
-        [Route("getads")]
-        public List<Ad> GetAds(int id)
+        [Route("getadsforuser")]
+        public List<Ad> GetAdsForUser(int id)
         {
             var repo = new Repository(_connectionString);
             return repo.GetAdsForUser(id);
         }
 
-        //[HttpGet]
-        //[Route("getallbookmarks")]
-        //public List<Bookmark> GetAllBookmarks()
-        //{
-        //    var repo = new Repository(_connectionString);
-        //    return repo.GetBookmarks();
-        //}
-
+        [HttpGet]
+        [Route("getads")]
+        public List<Ad> GetAds()
+        {
+            var repo = new Repository(_connectionString);
+            return repo.GetAds();
+        }
 
 
         [HttpPost]

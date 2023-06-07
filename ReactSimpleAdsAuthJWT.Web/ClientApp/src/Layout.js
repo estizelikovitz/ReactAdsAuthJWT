@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../AuthContext';
+import { useAuthContext } from './AuthContext';
 
 const Layout = (props) => {
     const { user } = useAuthContext();

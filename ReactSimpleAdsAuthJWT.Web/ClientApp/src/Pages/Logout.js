@@ -14,7 +14,7 @@ const Logout = () => {
         }
 
         doLogout();
-        history.push('/');
+        history.push('/login');
 
     }, []);
 

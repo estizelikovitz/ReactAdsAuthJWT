@@ -9,6 +9,8 @@ import Logout from './Pages/Logout';
 import SignUp from './Pages/SignUp';
 import { AuthContextComponent } from './AuthContext';
 import PrivateRoute from './Components/PrivateRoute';
+import Ad from './Components/Ad';
+
 
 
 

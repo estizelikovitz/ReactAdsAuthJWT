@@ -5,9 +5,10 @@ import { Link, useHistory } from 'react-router-dom';
 import getAxios from '../AuthAxios';
 
 
-const AddBookmark = () => {
+const AddAd = () => {
     const [ad, setAd] = useState({ description: '', phonenumber: '' });
     const history = useHistory();
+
     const onTextChange = (e) => {
         const newAd = { ...ad };
         newAd[e.target.name] = e.target.value;
@@ -16,7 +17,7 @@ const AddBookmark = () => {
 
     const onSubmitClick = async (e) => {
         e.preventDefault();
-        await getAxios().post('/api/ad/addad', ad);
+        await getAxios().post('/api/ads/addad', ad);
         history.push('/myads');
 
     }
@@ -48,4 +49,4 @@ const AddBookmark = () => {
         </>
     )
 }
-export default AddBookmark;
+export default AddAd;
